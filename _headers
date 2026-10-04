@@ -1,0 +1,24 @@
+# Cloudflare Pages 缓存规则（放在站点根目录即生效）
+# 语法：路径匹配 + 缩进的响应头
+
+# HTML：不缓存，改完立刻生效
+/index.html
+  Cache-Control: no-cache
+
+# 数据文件：不缓存，避免改了内容前台没更新
+/assets/js/generated-data.js
+  Cache-Control: no-cache
+
+# 代码资源：1 小时
+/assets/css/*
+  Cache-Control: public, max-age=3600
+/assets/js/*
+  Cache-Control: public, max-age=3600
+
+# 图片 / 音频：7 天
+/*.jpg
+  Cache-Control: public, max-age=604800
+/*.png
+  Cache-Control: public, max-age=604800
+/*.mp3
+  Cache-Control: public, max-age=604800

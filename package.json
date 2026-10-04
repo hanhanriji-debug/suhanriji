@@ -1,0 +1,18 @@
+{
+  "name": "suhan-diary",
+  "version": "1.0.0",
+  "private": true,
+  "description": "苏涵日记 · 纯静态个人主页（无后端、无数据库）",
+  "scripts": {
+    "build": "python tools/build_data.py",
+    "dev": "python -m http.server 8123 --bind 127.0.0.1",
+    "test": "node tools/smoke_test.js",
+    "deploy:vps": "bash deploy/deploy-vps.sh",
+    "upload:media": "bash deploy/upload-media.sh"
+  },
+  "comments": {
+    "build": "扫描素材生成 assets/js/generated-data.js；新增/替换素材后必跑",
+    "build_cnd": "视频走对象存储时：MEDIA_BASE=https://你的媒体域名/daily npm run build",
+    "test": "jsdom 冒烟测试，需 NODE_PATH 指向装有 jsdom 的 node_modules"
+  }
+}

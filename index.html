@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>苏涵日记 · 文游 / 剧情 / 配音</title>
+<meta name="description" content="苏涵日记：剧情文稿、配音作品与挑战榜单，最全更新都在我的频道里。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- 背景图（背景图文件夹，自动轮播） -->
+<div class="bg" id="bg" aria-hidden="true"></div>
+<div class="bg__veil" id="bgVeil" aria-hidden="true"></div>
+
+<!-- ============ 导航 ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top">
+      <span class="nav__heart">❀</span><span id="navName">苏涵日记</span>
+    </a>
+    <nav class="nav__links" id="navLinks"></nav>
+    <button class="nav__toggle" id="navToggle" aria-label="打开菜单"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ 顶部 ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero__inner">
+    <div class="hero__avatarWrap">
+      <img class="hero__avatar" id="avatar" src="" alt="苏涵">
+      <span class="hero__badge">🎧</span>
+    </div>
+    <div class="hero__text">
+      <p class="hero__role" id="role">文游 / 剧情 / 配音创作者</p>
+      <h1 class="hero__name"><span id="name">苏涵</span> 的日记</h1>
+      <p class="hero__persona" id="persona"></p>
+      <ul class="hero__stats" id="heroStats"></ul>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#channels">逛逛我的频道</a>
+        <button class="btn btn--ghost" id="musicBtnTop" type="button">♪ 播放背景音乐</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 简介 ============ -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="secHead">
+      <div>
+        <p class="secHead__kicker">About</p>
+        <h2 class="secHead__title">简介</h2>
+        <p class="secHead__sub">关于我，以及这里会更新些什么</p>
+      </div>
+    </div>
+
+    <div class="about">
+      <div class="about__card">
+        <h3 class="about__title">人设</h3>
+        <p class="about__persona" id="aboutPersona"></p>
+        <p class="about__intro" id="aboutIntro"></p>
+        <div class="about__tags" id="aboutTags"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 联系我 ============ -->
+<section class="section section--tint" id="contact">
+  <div class="wrap">
+    <div class="secHead">
+      <div>
+        <p class="secHead__kicker">Contact</p>
+        <h2 class="secHead__title" id="contactTitle">联系我</h2>
+        <p class="secHead__sub" id="contactSub"></p>
+      </div>
+    </div>
+
+    <p class="contactNote" id="contactNote" hidden></p>
+    <div class="contactCards" id="contactCards"></div>
+  </div>
+</section>
+
+<!-- ============ 关注渠道 ============ -->
+<section class="section section--tint" id="channels">
+  <div class="wrap">
+    <div class="secHead">
+      <div>
+        <p class="secHead__kicker">Follow</p>
+        <h2 class="secHead__title">关注渠道</h2>
+        <p class="secHead__sub">最新内容与更新都发在这些地方，点开即可跳转</p>
+      </div>
+    </div>
+
+    <!-- 引流入口卡片（配置在 assets/js/data.js 的 promoCards） -->
+    <div class="promoGrid" id="promoGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 榜单 ============ -->
+<section class="section" id="ranking">
+  <div class="wrap">
+    <div class="secHead">
+      <div>
+        <p class="secHead__kicker">Ranking</p>
+        <h2 class="secHead__title" id="rankTitle">榜单</h2>
+        <p class="secHead__sub" id="rankIntro"></p>
+      </div>
+    </div>
+    <div class="rankSections" id="rankSections"></div>
+  </div>
+</section>
+
+<!-- ============ 好评记录（预留，默认隐藏） ============ -->
+<section class="section section--tint" id="reviews" hidden>
+  <div class="wrap">
+    <div class="secHead">
+      <div>
+        <p class="secHead__kicker">Reviews</p>
+        <h2 class="secHead__title">好评记录</h2>
+        <p class="secHead__sub">来自朋友们的反馈</p>
+      </div>
+      <div class="secHead__aside">平均 <b id="avgRating">0.0</b> ★ · 共 <b id="reviewCount">0</b> 条</div>
+    </div>
+    <div class="reviewGrid" id="reviewList"></div>
+    <p class="emptyTip" id="reviewsEmpty">还没有内容～把图片放进 assets/reviews/，再在 assets/js/data.js 的 reviews 里填上文字就会出现啦。</p>
+  </div>
+</section>
+
+<!-- ============ 在售商品（预留，默认隐藏） ============ -->
+<section class="section" id="shop" hidden>
+  <div class="wrap">
+    <div class="secHead">
+      <div>
+        <p class="secHead__kicker">Shop</p>
+        <h2 class="secHead__title">在售商品</h2>
+        <p class="secHead__sub">闲置与手作小物</p>
+      </div>
+      <div class="sortBar" id="filterBar">
+        <button class="chip is-active" data-filter="all">全部</button>
+        <button class="chip" data-filter="onsale">在售</button>
+        <button class="chip" data-filter="sold">已售出</button>
+      </div>
+    </div>
+    <div class="productGrid" id="productList"></div>
+    <p class="emptyTip" id="shopEmpty">还没有内容～把商品图放进 assets/shop/，再在 assets/js/data.js 的 products.items 里填上名称、价格、简介就会出现啦。</p>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p class="footer__name" id="footName">苏涵日记</p>
+    <p class="footer__copy">© <span id="year"></span> 苏涵日记 · 用声音和文字陪你每一天</p>
+  </div>
+</footer>
+
+<!-- 背景音乐控制（音量只作用于背景音乐，不影响视频/其他音频） -->
+<div class="music" id="musicBar">
+  <button class="music__btn" id="musicBtn" type="button" aria-label="播放/暂停背景音乐">
+    <span class="music__icon" id="musicIcon">▶</span>
+    <span class="music__text" id="musicText">背景音乐</span>
+  </button>
+  <div class="music__panel" id="volumePanel">
+    <button class="music__mute" id="muteBtn" type="button" aria-label="静音/取消静音">🔊</button>
+    <input class="music__range" id="volumeRange" type="range" min="0" max="100" step="1" value="30"
+           aria-label="背景音乐音量">
+    <span class="music__val" id="volumeVal">30%</span>
+  </div>
+</div>
+<audio id="bgm" loop preload="none"></audio>
+
+<!-- 图片查看器 -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox__close" id="lightboxClose" aria-label="关闭">✕</button>
+  <img class="lightbox__img" id="lightboxImg" src="" alt="">
+</div>
+
+<button class="toTop" id="toTop" aria-label="回到顶部">↑</button>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/generated-data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
